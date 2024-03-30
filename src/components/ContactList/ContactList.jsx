@@ -1,15 +1,13 @@
-import Contact from '../Сontact/Contact'; // Поправте шлях до вашого компонента Contact
+import Contact from '../Сontact/Contact';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectContacts, deleteContact } from '../../redux/contactsSlice'; // Імпортуйте екшени для видалення контакту
+import { selectContacts, deleteContact } from '../../redux/contactsSlice';
 import styles from './ContactList.module.css';
 
 const ContactList = () => {
   const contacts = useSelector(selectContacts);
-  const dispatch = useDispatch(); // Отримайте функцію диспетчеризації для відправки екшенів
-
-  // Функція для видалення контакту
+  const dispatch = useDispatch();
   const handleDeleteContact = (id) => {
-    dispatch(deleteContact(id)); // Відправляємо екшен для видалення контакту з використанням id
+    dispatch(deleteContact(id)); 
   };
 
   return (
@@ -19,7 +17,7 @@ const ContactList = () => {
           <Contact
             name={contact.name}
             phone={contact.phone}
-            onDelete={() => handleDeleteContact(contact.id)} // Додайте обробник видалення
+            onDelete={() => handleDeleteContact(contact.id)}
           />
         </li>
       ))}
